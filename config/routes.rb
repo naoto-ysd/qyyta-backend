@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  post '/api/blog_posts', to: 'blog_posts#create'
+  namespace :api do
+    namespace :v1 do
+      resources :articles
+    end
+  end
 end
