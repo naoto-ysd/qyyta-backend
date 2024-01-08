@@ -7,7 +7,13 @@ module Api
       end
 
       def create
+        article = Article.new(title: params[:title], body: params[:body])
 
+        if article.save
+          render json: { status: 'Success', message: 'article saved', data: article }, status: :ok
+        else
+          render json: { status: 'Error', message: 'article not saved', data: article.errors }, status: :unprocessable_entity
+        end
       end
 
       def show
