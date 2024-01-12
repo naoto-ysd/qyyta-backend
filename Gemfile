@@ -45,3 +45,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rack-cors'
 gem 'psych', '< 4.0'
 gem 'net-imap', '~> 0.4.9'
+gem 'devise'

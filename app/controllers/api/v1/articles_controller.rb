@@ -6,9 +6,15 @@ module Api
         render json: articles
       end
 
+      def articles_count_by_month
+        # get created_at from articles table. this is because count aricles by month based on created_at.
+        # Colums other than created_at are not needed.
+        articles = Article.select(:created_at).where(user_id: params[:user_id])
+        render json: { status: 'Success', message: 'article count', created_at: articles }, status: :ok
+      end
+
       def create
         article = Article.new(title: params[:title], body: params[:body])
-
         if article.save
           render json: { status: 'Success', message: 'article saved', data: article }, status: :ok
         else
