@@ -6,6 +6,12 @@ module Api
         render json: articles
       end
 
+      def destroy
+        article = Article.find(params[:id])
+        article.destroy
+        render json: { status: 'Success', message: '記事を削除しました' }, status: :ok
+      end
+
       def articles_count_by_month
         # get created_at from articles table. this is because count aricles by month based on created_at.
         # Colums other than created_at are not needed.
