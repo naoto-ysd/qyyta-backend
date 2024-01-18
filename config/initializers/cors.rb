@@ -21,7 +21,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     if Rails.env.production?
       # origins TODO write the domain after determining it for the production environment
     else
-      origins 'http://localhost:3002'
+      origins '*'
     end
 
     resource '*',
