@@ -48,4 +48,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3001 }
   config.log_level = :info
 
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 end
